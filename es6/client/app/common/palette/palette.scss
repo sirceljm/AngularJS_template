@@ -1,0 +1,6 @@
+@import "../common.scss";
+
+.palette {
+	height: 30px;
+  @include draw-palette($baseColor);
+}

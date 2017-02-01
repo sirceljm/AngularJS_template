@@ -1,0 +1,12 @@
+<navbar></navbar>
+<div>
+  
+  <ul>
+  	<li ng-repeat="person in $ctrl.people track by person.id">
+  		<a ui-sref="team.person({personId: person.id})">{{person.name}}</a>
+  	</li>
+  </ul>
+  <ui-view></ui-view>
+  <pre>{{ $ctrl |json }}</pre>
+  
+</div>

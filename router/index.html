@@ -1,0 +1,53 @@
+<html ng-app="routerapp">
+	<head>
+		<title>AngularJS router</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.js"></script>
+		<script type="text/javascript" src="router.js"></script>
+		<script type="text/javascript" src="services/people.js"></script>
+
+		<script type="text/ng-template" id="/menu.html">
+			<h2>Menu {{$ctrl.title}}</h2>
+			<button ng-click="$ctrl.toggle()">{{$ctrl.toggling_data}}</button>
+		</script>
+
+		<script type="text/ng-template" id="/people.html">
+			<h2>People</h2>
+			<!-- outer container -->
+			<div class="flex-h">  
+
+			  <!-- inner container for people -->
+			  <div class="people">
+			  
+			    <h3>Some people:</h3>
+			    <ul>
+			      <li ng-repeat="person in $ctrl.people">
+			        <a ui-sref-active="active" 
+			           ui-sref="people.person({ person_id: person.id })">
+			          {{person.name}}
+			        </a>
+			      </li>
+			    </ul>
+			    
+			  </div>
+			  
+			  <!-- viewport for child view -->
+			  <ui-view></ui-view>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="/person.html">
+			<h2>Person</h2>
+			{{$ctrl.person}}
+		</script>
+
+		<style>.active { color: red; font-weight: bolder; }</style>
+	</head>
+	<body>
+		<a ui-sref="hello" ui-sref-active="active">Hello</a>
+		<a ui-sref="about" ui-sref-active="active">About</a>
+		<a ui-sref="mymenu" ui-sref-active="active">Menu</a>
+		<a ui-sref="people" ui-sref-active="active">People</a>
+		<ui-view></ui-view>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+@import './palette.scss';
+
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+$baseColor: #4958a7;
+$palette: palette($baseColor);
+
+$primaryColor:   lightest($palette);
+$accentColor:    lighter($palette);
+$bgColor:        white;
+$darkBgColor:    darkest($palette);
+$lightBgColor:   lighter($palette);
+$lightTextColor: light($palette);
+$darkTextColor:  dark($palette);
+$primaryLinkColor: dark($palette); 
+
+
+
+body {
+   height: 100%;
+   font-family: 'Lato', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $primaryLinkColor;
+}
